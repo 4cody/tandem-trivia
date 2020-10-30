@@ -7,58 +7,68 @@
 
 .game-wrap {
   perspective: 6000px;
-  border: 1px solid black;
-  width: 500px;
-  height: 700px;
   display: grid;
   place-content: center;
-  /* perspective-origin: 50% 50%; */
+  perspective-origin: 50% 50%;
 }
 
 .switchBtn {
   position: absolute;
   padding: 0.4rem 1.1rem;
+  top: 1rem;
   font-size: 1rem;
 }
 
-.gameCube {
+.al {
+  left: 1rem;
+}
+
+.ar {
+  right: 1rem;
+}
+
+.prism {
   position: relative;
   transform-style: preserve-3d;
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 600px;
   margin: auto;
   transition: transform 0.4s ease-out;
 }
 
-.gameCubeSwitch {
+.setToAbout {
   transform: rotate3d(0, 1, 0, 90deg);
 }
 
-.gameCube .screen {
+.setToRound {
+  transform: rotate3d(0, 1, 0, -90deg);
+}
+
+.prism .screen {
   width: 100%;
   height: 100%;
   font-size: 3rem;
-  color: white;
-}
-
-.gameCube .screen {
   position: absolute;
-  opacity: 0.8;
+  color: white;
+
+  display: grid;
+  place-content: center;
 }
 
-.gameCube .screen:nth-child(1) {
-  transform: rotateY(0deg) translateZ(200px);
+/* align faces of 3d prism */
+.prism .screen:nth-child(1) {
+  transform: rotateY(0deg) translateZ(250px);
   background-color: blue;
 }
-.gameCube .screen:nth-child(2) {
-  transform: rotateY(90deg) translateZ(200px);
+.prism .screen:nth-child(2) {
+  transform: rotateY(90deg) translateZ(250px);
   background-color: red;
 }
-.gameCube .screen:nth-child(3) {
-  transform: rotateY(180deg) translateZ(200px);
+.prism .screen:nth-child(3) {
+  transform: rotateY(180deg) translateZ(250px);
   background-color: purple;
 }
-.gameCube .screen:nth-child(4) {
-  transform: rotateY(-90deg) translateZ(200px);
+.prism .screen:nth-child(4) {
+  transform: rotateY(-90deg) translateZ(250px);
   background-color: orange;
 }
