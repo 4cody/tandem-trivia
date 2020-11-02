@@ -11,6 +11,7 @@ import {
   SET_TOTAL,
   GENERATE_QUESTION_SET,
   RESET,
+  START,
 } from './reducers';
 
 const GlobalState = ({ children }) => {
@@ -28,6 +29,14 @@ const GlobalState = ({ children }) => {
     dispatch({
       type: ROTATE_PRISM,
       payload: face,
+    });
+  };
+
+  // obj contains questionSet and face#
+  const startGame = (obj) => {
+    dispatch({
+      type: START,
+      payload: obj,
     });
   };
 
@@ -91,6 +100,7 @@ const GlobalState = ({ children }) => {
         prismClass: gameState.prismClass,
         prismFace: gameState.prismFace,
         total: gameState.total,
+        startGame,
         genQuestions,
         rotatePrism,
         setTempAnswer,

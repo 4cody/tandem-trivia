@@ -5,6 +5,7 @@ export const ROTATE_PRISM = 'ROTATE_PRISM';
 export const GENERATE_QUESTION_SET = 'GENERATE_QUESTION_SET';
 export const SET_TOTAL = 'SET_TOTAL';
 export const RESET = 'RESET';
+export const START = 'START';
 
 const handleClass = (face) => {
   switch (face) {
@@ -30,8 +31,15 @@ export const gameReducer = (state, action) => {
     case ROTATE_PRISM:
       return { ...state, prismClass: handleClass(action.payload) };
 
+    case START:
+      console.log(action.payload.qs);
+      return {
+        ...state,
+        questions: action.payload.qs,
+        prismClass: handleClass(action.payload.face),
+      };
+
     case GENERATE_QUESTION_SET:
-      console.log(action.payload);
       return { ...state, questions: action.payload };
 
     case TEMP_ANSWER:

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 
 import Button from './Button';
 import Screen from './Screen';
@@ -9,10 +9,6 @@ import { generateQuestions } from '../utils/generateQuestions';
 
 export const GamePrism = () => {
   const context = useContext(GameContext);
-
-  useEffect(() => {
-    context.genQuestions();
-  }, []);
 
   return (
     <div className={`${context.prismClass}`}>
@@ -28,7 +24,10 @@ export const GamePrism = () => {
         <Button
           cn='switchBtn ar'
           action={() => {
-            context.rotatePrism(3);
+            context.startGame({
+              qs: generateQuestions([]),
+              face: 3,
+            });
           }}
         >
           Play
