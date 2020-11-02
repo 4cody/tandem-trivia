@@ -9,7 +9,6 @@
   perspective: 6000px;
   display: grid;
   place-content: center;
-  perspective-origin: 50% 50%;
 }
 
 .switchBtn {
@@ -17,6 +16,7 @@
   padding: 0.4rem 1.1rem;
   top: 1rem;
   font-size: 1rem;
+  z-index: 5;
 }
 
 .al {
@@ -44,15 +44,25 @@
   transform: rotate3d(0, 1, 0, -90deg);
 }
 
+.setToScore {
+  transform: rotate3d(0, 1, 0, -180deg) !important;
+}
+
 .prism .screen {
   width: 100%;
   height: 100%;
   font-size: 3rem;
   position: absolute;
   color: white;
+  box-shadow: -1px 1px 3px #4267b2;
+  border: 1px solid var(--dark);
 
   display: grid;
   place-content: center;
+}
+
+.about-screen {
+  padding: 1rem;
 }
 
 /* align faces of 3d prism */
@@ -62,7 +72,7 @@
 }
 .prism .screen:nth-child(2) {
   transform: rotateY(90deg) translateZ(250px);
-  background-color: red;
+  background-color: grey;
 }
 .prism .screen:nth-child(3) {
   transform: rotateY(180deg) translateZ(250px);
@@ -70,5 +80,93 @@
 }
 .prism .screen:nth-child(4) {
   transform: rotateY(-90deg) translateZ(250px);
-  background-color: orange;
+  background-color: var(--dark);
+}
+
+/* trivia question card */
+
+.question-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+}
+
+.noDisplay {
+  visibility: hidden;
+}
+
+ul {
+  list-style: none;
+}
+
+.question-card {
+  width: 100%;
+  height: 75%;
+}
+
+.question {
+  text-align: center;
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+.answer-set {
+  width: 100%;
+  margin-top: 3rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.answer {
+  position: relative;
+  display: inline;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: start;
+  font-size: 2rem;
+  margin: 0.2rem 1.2rem;
+  padding: 0.4rem 0.2rem;
+  transition: all 0.2s ease-out;
+  background-color: inherit;
+}
+
+.answer:hover {
+  color: var(--turq);
+}
+
+.selected {
+  color: black !important;
+}
+
+.answer-submit {
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  align-self: center;
+}
+
+.round-end {
+  display: flex;
+  flex-direction: column;
+}
+
+.round-end button,
+.resetBtn,
+.homeBtn {
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+}
+
+.final-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
